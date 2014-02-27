@@ -7630,3 +7630,361 @@ java.io.FileNotFoundException: src/main/resources/test.ttl (No such file or dire
 15:52:50.025 [main] DEBUG org.apache.http.wire - http-outgoing-27 << "[\r][\n]"
 15:52:50.027 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection [id: 27][route: {}->http://www.streamreasoning.com:80] can be kept alive for 15.0 seconds
 15:52:50.027 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection released: [id: 27][route: {}->http://www.streamreasoning.com:80][total kept alive: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+17:56:13.208 [main] DEBUG org.apache.jena.riot.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+17:56:13.324 [main] DEBUG org.apache.jena.riot.stream.StreamManager - open(src/main/resources/exampleOfSlOutput.ttl)
+17:56:13.327 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Not mapped: src/main/resources/exampleOfSlOutput.ttl
+17:56:13.338 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Found: src/main/resources/exampleOfSlOutput.ttl (LocatorFile)
+17:56:13.929 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+17:56:13.943 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+17:56:13.945 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+17:56:13.970 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+17:56:13.991 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://www.streamreasoning.com:80
+17:56:14.692 [main] DEBUG org.apache.http.conn.HttpClientConnectionManager - Connecting to www.streamreasoning.com/131.175.57.192:80
+17:56:14.766 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Executing request PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520173093 HTTP/1.1
+17:56:14.767 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+17:56:14.768 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+17:56:14.771 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520173093 HTTP/1.1
+17:56:14.771 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Type: text/turtle
+17:56:14.771 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Length: 1982
+17:56:14.772 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Host: www.streamreasoning.com
+17:56:14.772 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+17:56:14.772 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.3.2 (java 1.5)
+17:56:14.772 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+17:56:14.772 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520173093 HTTP/1.1[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Type: text/turtle[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Length: 1982[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Host: www.streamreasoning.com[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.3.2 (java 1.5)[\r][\n]"
+17:56:14.773 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . [\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .[\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .[\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix dcterms: <http://purl.org/dc/terms/> .[\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix sioc: <http://rdfs.org/sioc/ns#> .[\n]"
+17:56:14.774 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix prov: <http://www.w3.org/ns/prov#> .[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix cse: <http://www.citydatafusion.org/ontology/2014/1/cse#> .[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix venue: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue/> .[\n]"
+17:56:14.775 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix district: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/district/> .[\n]"
+17:56:14.776 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix event: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/event/> .[\n]"
+17:56:14.776 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .[\n]"
+17:56:14.776 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix tag: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/tag/> .[\n]"
+17:56:14.782 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix ts: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts/> .[\n]"
+17:56:14.782 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix ts3h: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts3h/> .[\n]"
+17:56:14.782 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix cp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cp/> .[\n]"
+17:56:14.783 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix mp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/mp/> .[\n]"
+17:56:14.783 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\n]"
+17:56:14.783 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "mp:42 [0x9]rdf:type sma:Tweet ;[\n]"
+17:56:14.783 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:has_creator user:Alice ;[\n]"
+17:56:14.784 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic tag:Opificio31, tag:phonepad,venue:Opificio31, event:AuthenticBeauty, district:Tortona, event:mdw2014 ;[\n]"
+17:56:14.784 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]dcterms:created "2001-10-26T21:32:52"^^xsd:dateTime ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:sentiment "0.5"^^xsd:float ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:contradiction_level "1.0"^^xsd:float ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about venue:Opificio31 ; sma:sentiment "1.0"^^xsd:float ] ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about event:AuthenticBeauty ; sma:sentiment "0.6"^^xsd:float ] ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about "phonepad" ; sma:sentiment "-0.7"^^xsd:float ] ;[\n]"
+17:56:14.785 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]geo:location [ geo:lat "45.45149"^^xsd:float; geo:long "9.162278"^^xsd:float ] ;[\n]"
+17:56:14.786 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_during ts:1365461100000;[\n]"
+17:56:14.786 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_during ts3h:1365469200000;[\n]"
+17:56:14.786 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_in cp:4451 ;[\n]"
+17:56:14.786 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:language "en"^^xsd:string ."
+17:56:15.378 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 201 Created[\r][\n]"
+17:56:15.379 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Date: Thu, 27 Feb 2014 16:56:15 GMT[\r][\n]"
+17:56:15.379 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Server: Fuseki (1.0.1)[\r][\n]"
+17:56:15.379 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Fuseki-Request-ID: 381[\r][\n]"
+17:56:15.379 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Access-Control-Allow-Origin: *[\r][\n]"
+17:56:15.380 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Content-Length: 0[\r][\n]"
+17:56:15.380 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Content-Type: text/plain[\r][\n]"
+17:56:15.380 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+17:56:15.380 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << HTTP/1.1 201 Created
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Date: Thu, 27 Feb 2014 16:56:15 GMT
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Server: Fuseki (1.0.1)
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Fuseki-Request-ID: 381
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Access-Control-Allow-Origin: *
+17:56:15.383 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Content-Length: 0
+17:56:15.384 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Content-Type: text/plain
+17:56:15.384 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Connection: keep-alive
+17:56:15.387 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection can be kept alive indefinitely
+17:56:15.398 [main] DEBUG org.citydatafusion.cpsma.cpsma4mdw2014.BlackboardMediator - HTTP/1.1 201 Created [Date: Thu, 27 Feb 2014 16:56:15 GMT, Server: Fuseki (1.0.1), Fuseki-Request-ID: 381, Access-Control-Allow-Origin: *, Content-Length: 0, Content-Type: text/plain, Connection: keep-alive]
+17:56:15.398 [main] DEBUG org.apache.jena.riot.stream.StreamManager - open(src/main/resources/exampleOfSlOutput.ttl)
+17:56:15.398 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Not mapped: src/main/resources/exampleOfSlOutput.ttl
+17:56:15.398 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Found: src/main/resources/exampleOfSlOutput.ttl (LocatorFile)
+17:56:15.464 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+17:56:15.465 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+17:56:15.465 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+17:56:15.466 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 1][route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 2 of 2; total allocated: 2 of 20]
+17:56:15.466 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://www.streamreasoning.com:80
+17:56:15.466 [main] DEBUG org.apache.http.conn.HttpClientConnectionManager - Connecting to www.streamreasoning.com/131.175.57.192:80
+17:56:15.526 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Executing request PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520175398 HTTP/1.1
+17:56:15.526 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+17:56:15.526 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+17:56:15.527 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520175398 HTTP/1.1
+17:56:15.528 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Content-Type: text/turtle
+17:56:15.528 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Content-Length: 1982
+17:56:15.529 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Host: www.streamreasoning.com
+17:56:15.529 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Connection: Keep-Alive
+17:56:15.529 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> User-Agent: Apache-HttpClient/4.3.2 (java 1.5)
+17:56:15.529 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Accept-Encoding: gzip,deflate
+17:56:15.530 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520175398 HTTP/1.1[\r][\n]"
+17:56:15.530 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Content-Type: text/turtle[\r][\n]"
+17:56:15.530 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Content-Length: 1982[\r][\n]"
+17:56:15.530 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Host: www.streamreasoning.com[\r][\n]"
+17:56:15.530 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Connection: Keep-Alive[\r][\n]"
+17:56:15.531 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "User-Agent: Apache-HttpClient/4.3.2 (java 1.5)[\r][\n]"
+17:56:15.531 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+17:56:15.531 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[\r][\n]"
+17:56:15.531 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . [\n]"
+17:56:15.531 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .[\n]"
+17:56:15.532 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .[\n]"
+17:56:15.532 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix dcterms: <http://purl.org/dc/terms/> .[\n]"
+17:56:15.532 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix sioc: <http://rdfs.org/sioc/ns#> .[\n]"
+17:56:15.532 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix prov: <http://www.w3.org/ns/prov#> .[\n]"
+17:56:15.532 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .[\n]"
+17:56:15.533 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[\n]"
+17:56:15.533 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix cse: <http://www.citydatafusion.org/ontology/2014/1/cse#> .[\n]"
+17:56:15.533 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .[\n]"
+17:56:15.533 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix venue: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue/> .[\n]"
+17:56:15.533 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix district: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/district/> .[\n]"
+17:56:15.534 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix event: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/event/> .[\n]"
+17:56:15.534 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .[\n]"
+17:56:15.534 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix tag: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/tag/> .[\n]"
+17:56:15.534 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix ts: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts/> .[\n]"
+17:56:15.534 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix ts3h: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts3h/> .[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix cp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cp/> .[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix mp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/mp/> .[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "mp:42 [0x9]rdf:type sma:Tweet ;[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sioc:has_creator user:Alice ;[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sioc:topic tag:Opificio31, tag:phonepad,venue:Opificio31, event:AuthenticBeauty, district:Tortona, event:mdw2014 ;[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]dcterms:created "2001-10-26T21:32:52"^^xsd:dateTime ;[\n]"
+17:56:15.535 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:sentiment "0.5"^^xsd:float ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:contradiction_level "1.0"^^xsd:float ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sioc:topic [ sma:about venue:Opificio31 ; sma:sentiment "1.0"^^xsd:float ] ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sioc:topic [ sma:about event:AuthenticBeauty ; sma:sentiment "0.6"^^xsd:float ] ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sioc:topic [ sma:about "phonepad" ; sma:sentiment "-0.7"^^xsd:float ] ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]geo:location [ geo:lat "45.45149"^^xsd:float; geo:long "9.162278"^^xsd:float ] ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:created_during ts:1365461100000;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:created_during ts3h:1365469200000;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:created_in cp:4451 ;[\n]"
+17:56:15.536 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[0x9][0x9]sma:language "en"^^xsd:string ."
+17:56:15.937 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "HTTP/1.1 201 Created[\r][\n]"
+17:56:15.938 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Date: Thu, 27 Feb 2014 16:56:15 GMT[\r][\n]"
+17:56:15.939 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Server: Fuseki (1.0.1)[\r][\n]"
+17:56:15.939 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Fuseki-Request-ID: 382[\r][\n]"
+17:56:15.939 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Access-Control-Allow-Origin: *[\r][\n]"
+17:56:15.939 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Content-Length: 0[\r][\n]"
+17:56:15.939 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Content-Type: text/plain[\r][\n]"
+17:56:15.940 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Connection: keep-alive[\r][\n]"
+17:56:15.940 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "[\r][\n]"
+17:56:15.940 [main] DEBUG org.apache.http.headers - http-outgoing-1 << HTTP/1.1 201 Created
+17:56:15.940 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Date: Thu, 27 Feb 2014 16:56:15 GMT
+17:56:15.940 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Server: Fuseki (1.0.1)
+17:56:15.941 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Fuseki-Request-ID: 382
+17:56:15.941 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Access-Control-Allow-Origin: *
+17:56:15.941 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Content-Length: 0
+17:56:15.941 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Content-Type: text/plain
+17:56:15.941 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Connection: keep-alive
+17:56:15.942 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection can be kept alive indefinitely
+17:56:15.942 [main] DEBUG org.citydatafusion.cpsma.cpsma4mdw2014.BlackboardMediator - HTTP/1.1 201 Created [Date: Thu, 27 Feb 2014 16:56:15 GMT, Server: Fuseki (1.0.1), Fuseki-Request-ID: 382, Access-Control-Allow-Origin: *, Content-Length: 0, Content-Type: text/plain, Connection: keep-alive]
+18:04:11.598 [main] DEBUG org.apache.jena.riot.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+18:04:11.697 [main] DEBUG org.apache.jena.riot.stream.StreamManager - open(src/main/resources/exampleOfSlOutput.ttl)
+18:04:11.700 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Not mapped: src/main/resources/exampleOfSlOutput.ttl
+18:04:11.704 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Found: src/main/resources/exampleOfSlOutput.ttl (LocatorFile)
+18:04:12.126 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+18:04:12.141 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+18:04:12.143 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+18:04:12.166 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+18:04:12.182 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://www.streamreasoning.com:80
+18:04:12.199 [main] DEBUG org.apache.http.conn.HttpClientConnectionManager - Connecting to www.streamreasoning.com/131.175.57.192:80
+18:04:19.716 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Executing request PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520651479 HTTP/1.1
+18:04:19.717 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+18:04:19.718 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+18:04:19.723 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520651479 HTTP/1.1
+18:04:19.723 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Type: text/turtle
+18:04:19.723 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Length: 1982
+18:04:19.723 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Host: www.streamreasoning.com
+18:04:19.724 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+18:04:19.724 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.3.2 (java 1.5)
+18:04:19.724 [main] DEBUG org.apache.http.headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+18:04:19.725 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "PUT /demos/mdw14/fuseki/cp_sma_ds/data?graph=http%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fnull%2F1393520651479 HTTP/1.1[\r][\n]"
+18:04:19.725 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Type: text/turtle[\r][\n]"
+18:04:19.725 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Length: 1982[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Host: www.streamreasoning.com[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.3.2 (java 1.5)[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+18:04:19.726 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . [\n]"
+18:04:19.727 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .[\n]"
+18:04:19.727 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .[\n]"
+18:04:19.727 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix dcterms: <http://purl.org/dc/terms/> .[\n]"
+18:04:19.727 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix sioc: <http://rdfs.org/sioc/ns#> .[\n]"
+18:04:19.727 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix prov: <http://www.w3.org/ns/prov#> .[\n]"
+18:04:19.728 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .[\n]"
+18:04:19.728 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\n]"
+18:04:19.728 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix cse: <http://www.citydatafusion.org/ontology/2014/1/cse#> .[\n]"
+18:04:19.728 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .[\n]"
+18:04:19.728 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix venue: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix district: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/district/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix event: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/event/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix tag: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/tag/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix ts: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts/> .[\n]"
+18:04:19.729 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix ts3h: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts3h/> .[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix cp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cp/> .[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "@prefix mp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/mp/> .[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "mp:42 [0x9]rdf:type sma:Tweet ;[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:has_creator user:Alice ;[\n]"
+18:04:19.730 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic tag:Opificio31, tag:phonepad,venue:Opificio31, event:AuthenticBeauty, district:Tortona, event:mdw2014 ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]dcterms:created "2001-10-26T21:32:52"^^xsd:dateTime ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:sentiment "0.5"^^xsd:float ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:contradiction_level "1.0"^^xsd:float ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about venue:Opificio31 ; sma:sentiment "1.0"^^xsd:float ] ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about event:AuthenticBeauty ; sma:sentiment "0.6"^^xsd:float ] ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sioc:topic [ sma:about "phonepad" ; sma:sentiment "-0.7"^^xsd:float ] ;[\n]"
+18:04:19.731 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]geo:location [ geo:lat "45.45149"^^xsd:float; geo:long "9.162278"^^xsd:float ] ;[\n]"
+18:04:19.732 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_during ts:1365461100000;[\n]"
+18:04:19.732 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_during ts3h:1365469200000;[\n]"
+18:04:19.732 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:created_in cp:4451 ;[\n]"
+18:04:19.732 [main] DEBUG org.apache.http.wire - http-outgoing-0 >> "[0x9][0x9]sma:language "en"^^xsd:string ."
+18:04:21.275 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 201 Created[\r][\n]"
+18:04:21.275 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Date: Thu, 27 Feb 2014 17:04:19 GMT[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Server: Fuseki (1.0.1)[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Fuseki-Request-ID: 384[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Access-Control-Allow-Origin: *[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Content-Length: 0[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Content-Type: text/plain[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+18:04:21.276 [main] DEBUG org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+18:04:21.280 [main] DEBUG org.apache.http.headers - http-outgoing-0 << HTTP/1.1 201 Created
+18:04:21.280 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Date: Thu, 27 Feb 2014 17:04:19 GMT
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Server: Fuseki (1.0.1)
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Fuseki-Request-ID: 384
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Access-Control-Allow-Origin: *
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Content-Length: 0
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Content-Type: text/plain
+18:04:21.281 [main] DEBUG org.apache.http.headers - http-outgoing-0 << Connection: keep-alive
+18:04:21.285 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection can be kept alive indefinitely
+18:04:21.297 [main] DEBUG org.citydatafusion.cpsma.cpsma4mdw2014.BlackboardMediator - HTTP/1.1 201 Created [Date: Thu, 27 Feb 2014 17:04:19 GMT, Server: Fuseki (1.0.1), Fuseki-Request-ID: 384, Access-Control-Allow-Origin: *, Content-Length: 0, Content-Type: text/plain, Connection: keep-alive]
+18:04:21.298 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+18:04:21.298 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+18:04:21.298 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+18:04:21.298 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 1][route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 2 of 2; total allocated: 2 of 20]
+18:04:21.299 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://www.streamreasoning.com:80
+18:04:21.299 [main] DEBUG org.apache.http.conn.HttpClientConnectionManager - Connecting to www.streamreasoning.com/131.175.57.192:80
+18:04:21.613 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Executing request POST /demos/mdw14/fuseki/cp_sma_ds/data?graph=default HTTP/1.1
+18:04:21.613 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+18:04:21.613 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> POST /demos/mdw14/fuseki/cp_sma_ds/data?graph=default HTTP/1.1
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Content-Type: text/turtle
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Content-Length: 445
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Host: www.streamreasoning.com
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Connection: Keep-Alive
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> User-Agent: Apache-HttpClient/4.3.2 (java 1.5)
+18:04:21.614 [main] DEBUG org.apache.http.headers - http-outgoing-1 >> Accept-Encoding: gzip,deflate
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "POST /demos/mdw14/fuseki/cp_sma_ds/data?graph=default HTTP/1.1[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Content-Type: text/turtle[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Content-Length: 445[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Host: www.streamreasoning.com[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Connection: Keep-Alive[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "User-Agent: Apache-HttpClient/4.3.2 (java 1.5)[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+18:04:21.615 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "[\r][\n]"
+18:04:21.616 [main] DEBUG org.apache.http.wire - http-outgoing-1 >> "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . @prefix prov: <http://www.w3.org/ns/prov#> . @prefix cpsma: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/> . @prefix null: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/null/> . sl:1393520651479 a prov:Entity ; prov:wasAttributedTo cpsma:sl;prov:generatedAtTime "2014-02-27T18:04:11+01:00"^^xsd:dateTime . "
+18:04:23.073 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "HTTP/1.1 500 Internal Server Error[\r][\n]"
+18:04:23.074 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Date: Thu, 27 Feb 2014 17:04:22 GMT[\r][\n]"
+18:04:23.074 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Server: Fuseki (1.0.1)[\r][\n]"
+18:04:23.074 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Fuseki-Request-ID: 385[\r][\n]"
+18:04:23.074 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Access-Control-Allow-Origin: *[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Content-Type: text/plain;charset=UTF-8[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Cache-Control: must-revalidate,no-cache,no-store[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Vary: Accept-Encoding[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Content-Encoding: gzip[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Content-Length: 102[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "Connection: keep-alive[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "[\r][\n]"
+18:04:23.075 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "[0x1f][0x8b][0x8][0x0][0x0][0x0][0x0][0x0][0x0][0x3][0x15][0xc8]A[\n]"
+18:04:23.076 [main] DEBUG org.apache.http.wire - http-outgoing-1 << "[0x80] [0x10][0x5][0xd0][0xbd][0xa7][0xf8][0xcb]"[0x94][0x19])([0x97][0x81]][0xa0].[0x10][0xe8]B[0x8a][0x84][0xb1]:[0xf6][0x96][0xcf][0x8b]d[0xc1]@[0xe4][0xb0]Fy[0xa3][0xc0][0xff][0xa3][0x94]Z[0x9e][0x12][0x8f][0x4][0x8d][0x9a]%[0xe5][0xb]l[0xc8]0[0x9a][0xf9]Ig@[0xd8][0xef][0xe8]`[0x89]{M[0xac]y[0xdc]xr[0xc4][0xce]RGU[0xab]>[0xae][0xbb]O[0xe9]X[0x0][0x0][0x0]"
+18:04:23.076 [main] DEBUG org.apache.http.headers - http-outgoing-1 << HTTP/1.1 500 Internal Server Error
+18:04:23.076 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Date: Thu, 27 Feb 2014 17:04:22 GMT
+18:04:23.076 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Server: Fuseki (1.0.1)
+18:04:23.076 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Fuseki-Request-ID: 385
+18:04:23.076 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Access-Control-Allow-Origin: *
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Content-Type: text/plain;charset=UTF-8
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Cache-Control: must-revalidate,no-cache,no-store
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Vary: Accept-Encoding
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Content-Encoding: gzip
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Content-Length: 102
+18:04:23.077 [main] DEBUG org.apache.http.headers - http-outgoing-1 << Connection: keep-alive
+18:04:23.078 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection can be kept alive indefinitely
+18:04:23.095 [main] DEBUG org.citydatafusion.cpsma.cpsma4mdw2014.BlackboardMediator - HTTP/1.1 500 Internal Server Error [Date: Thu, 27 Feb 2014 17:04:22 GMT, Server: Fuseki (1.0.1), Fuseki-Request-ID: 385, Access-Control-Allow-Origin: *, Content-Type: text/plain;charset=UTF-8, Cache-Control: must-revalidate,no-cache,no-store, Vary: Accept-Encoding, Connection: keep-alive]
+18:04:23.096 [main] DEBUG org.apache.jena.riot.stream.StreamManager - open(src/main/resources/exampleOfSlOutput.ttl)
+18:04:23.096 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Not mapped: src/main/resources/exampleOfSlOutput.ttl
+18:04:23.096 [main] DEBUG org.apache.jena.riot.stream.StreamManager - Found: src/main/resources/exampleOfSlOutput.ttl (LocatorFile)
+18:04:23.160 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+18:04:23.161 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+18:04:23.161 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com:80][total kept alive: 0; route allocated: 2 of 2; total allocated: 2 of 20]
+18:18:32.131 [main] DEBUG org.citydatafusion.cpsma.cpsma4mdw2014.BlackboardMediator - prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  prefix prov: <http://www.w3.org/ns/prov#> prefix cpsma: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/> SELECT ?g WHERE { ?g a prov:Entity ;    prov:wasAttributedTo cpsma:null ;    prov:generatedAtTime ?t . FILTER (?t > "2014-02-27T13:00:00+01:00"^^xsd:dateTime) }
+18:18:32.301 [main] DEBUG org.apache.jena.riot.stream.JenaIOEnvironment - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+18:18:32.832 [main] DEBUG org.apache.jena.riot.web.HttpOp - [1] GET http://www.streamreasoning.com/demos/mdw14/fuseki/cp_sma_ds/query?query=PREFIX++prov%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Fprov%23%3E%0APREFIX++xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX++rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX++cpsma%3A+%3Chttp%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fcpsma%2F%3E%0A%0ASELECT++%3Fg%0AWHERE%0A++%7B+%3Fg+rdf%3Atype+prov%3AEntity+.%0A++++%3Fg+prov%3AwasAttributedTo+cpsma%3Anull+.%0A++++%3Fg+prov%3AgeneratedAtTime+%3Ft%0A++++FILTER+%28+%3Ft+%3E+%222014-02-27T13%3A00%3A00%2B01%3A00%22%5E%5Exsd%3AdateTime+%29%0A++%7D%0A
+18:18:32.881 [main] DEBUG org.apache.http.impl.conn.PoolingClientConnectionManager - Connection request: [route: {}->http://www.streamreasoning.com][total kept alive: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+18:18:32.893 [main] DEBUG org.apache.http.impl.conn.PoolingClientConnectionManager - Connection leased: [id: 0][route: {}->http://www.streamreasoning.com][total kept alive: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+18:18:32.900 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator - Connecting to www.streamreasoning.com:80
+18:18:40.513 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: best-match
+18:18:40.526 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+18:18:40.527 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication - Target auth state: UNCHALLENGED
+18:18:40.527 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication - Proxy auth state: UNCHALLENGED
+18:18:40.528 [main] DEBUG org.apache.http.impl.client.SystemDefaultHttpClient - Attempt 1 to execute request
+18:18:40.528 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Sending request: GET /demos/mdw14/fuseki/cp_sma_ds/query?query=PREFIX++prov%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Fprov%23%3E%0APREFIX++xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX++rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX++cpsma%3A+%3Chttp%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fcpsma%2F%3E%0A%0ASELECT++%3Fg%0AWHERE%0A++%7B+%3Fg+rdf%3Atype+prov%3AEntity+.%0A++++%3Fg+prov%3AwasAttributedTo+cpsma%3Anull+.%0A++++%3Fg+prov%3AgeneratedAtTime+%3Ft%0A++++FILTER+%28+%3Ft+%3E+%222014-02-27T13%3A00%3A00%2B01%3A00%22%5E%5Exsd%3AdateTime+%29%0A++%7D%0A HTTP/1.1
+18:18:40.529 [main] DEBUG org.apache.http.wire -  >> "GET /demos/mdw14/fuseki/cp_sma_ds/query?query=PREFIX++prov%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Fprov%23%3E%0APREFIX++xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX++rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX++cpsma%3A+%3Chttp%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fcpsma%2F%3E%0A%0ASELECT++%3Fg%0AWHERE%0A++%7B+%3Fg+rdf%3Atype+prov%3AEntity+.%0A++++%3Fg+prov%3AwasAttributedTo+cpsma%3Anull+.%0A++++%3Fg+prov%3AgeneratedAtTime+%3Ft%0A++++FILTER+%28+%3Ft+%3E+%222014-02-27T13%3A00%3A00%2B01%3A00%22%5E%5Exsd%3AdateTime+%29%0A++%7D%0A HTTP/1.1[\r][\n]"
+18:18:40.531 [main] DEBUG org.apache.http.wire -  >> "Accept: application/sparql-results+xml[\r][\n]"
+18:18:40.531 [main] DEBUG org.apache.http.wire -  >> "User-Agent: Apache-Jena-ARQ/2.11.1[\r][\n]"
+18:18:40.532 [main] DEBUG org.apache.http.wire -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+18:18:40.532 [main] DEBUG org.apache.http.wire -  >> "Host: www.streamreasoning.com[\r][\n]"
+18:18:40.532 [main] DEBUG org.apache.http.wire -  >> "Connection: Keep-Alive[\r][\n]"
+18:18:40.535 [main] DEBUG org.apache.http.wire -  >> "[\r][\n]"
+18:18:40.536 [main] DEBUG org.apache.http.headers - >> GET /demos/mdw14/fuseki/cp_sma_ds/query?query=PREFIX++prov%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Fprov%23%3E%0APREFIX++xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX++rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX++cpsma%3A+%3Chttp%3A%2F%2Fwww.streamreasoning.com%2Fdemos%2Fmdw14%2Ffuseki%2Fdata%2Fcpsma%2F%3E%0A%0ASELECT++%3Fg%0AWHERE%0A++%7B+%3Fg+rdf%3Atype+prov%3AEntity+.%0A++++%3Fg+prov%3AwasAttributedTo+cpsma%3Anull+.%0A++++%3Fg+prov%3AgeneratedAtTime+%3Ft%0A++++FILTER+%28+%3Ft+%3E+%222014-02-27T13%3A00%3A00%2B01%3A00%22%5E%5Exsd%3AdateTime+%29%0A++%7D%0A HTTP/1.1
+18:18:40.538 [main] DEBUG org.apache.http.headers - >> Accept: application/sparql-results+xml
+18:18:40.538 [main] DEBUG org.apache.http.headers - >> User-Agent: Apache-Jena-ARQ/2.11.1
+18:18:40.538 [main] DEBUG org.apache.http.headers - >> Accept-Encoding: gzip,deflate
+18:18:40.538 [main] DEBUG org.apache.http.headers - >> Host: www.streamreasoning.com
+18:18:40.538 [main] DEBUG org.apache.http.headers - >> Connection: Keep-Alive
+18:18:40.815 [main] DEBUG org.apache.http.wire -  << "HTTP/1.1 200 OK[\r][\n]"
+18:18:40.822 [main] DEBUG org.apache.http.wire -  << "Date: Thu, 27 Feb 2014 17:18:40 GMT[\r][\n]"
+18:18:40.822 [main] DEBUG org.apache.http.wire -  << "Server: Fuseki (1.0.1)[\r][\n]"
+18:18:40.823 [main] DEBUG org.apache.http.wire -  << "Fuseki-Request-ID: 387[\r][\n]"
+18:18:40.823 [main] DEBUG org.apache.http.wire -  << "Access-Control-Allow-Origin: *[\r][\n]"
+18:18:40.823 [main] DEBUG org.apache.http.wire -  << "Vary: Accept,Accept-Encoding,Accept-Charset,User-Agent[\r][\n]"
+18:18:40.823 [main] DEBUG org.apache.http.wire -  << "Cache-Control: no-cache[\r][\n]"
+18:18:40.824 [main] DEBUG org.apache.http.wire -  << "Pragma: no-cache[\r][\n]"
+18:18:40.824 [main] DEBUG org.apache.http.wire -  << "Content-Type: application/sparql-results+xml[\r][\n]"
+18:18:40.824 [main] DEBUG org.apache.http.wire -  << "Content-Encoding: gzip[\r][\n]"
+18:18:40.824 [main] DEBUG org.apache.http.wire -  << "Transfer-Encoding: chunked[\r][\n]"
+18:18:40.824 [main] DEBUG org.apache.http.wire -  << "[\r][\n]"
+18:18:40.825 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Receiving response: HTTP/1.1 200 OK
+18:18:40.825 [main] DEBUG org.apache.http.headers - << HTTP/1.1 200 OK
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Date: Thu, 27 Feb 2014 17:18:40 GMT
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Server: Fuseki (1.0.1)
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Fuseki-Request-ID: 387
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Access-Control-Allow-Origin: *
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Vary: Accept,Accept-Encoding,Accept-Charset,User-Agent
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Cache-Control: no-cache
+18:18:40.826 [main] DEBUG org.apache.http.headers - << Pragma: no-cache
+18:18:40.827 [main] DEBUG org.apache.http.headers - << Content-Type: application/sparql-results+xml
+18:18:40.828 [main] DEBUG org.apache.http.headers - << Content-Encoding: gzip
+18:18:40.828 [main] DEBUG org.apache.http.headers - << Transfer-Encoding: chunked
+18:18:40.831 [main] DEBUG org.apache.http.impl.client.SystemDefaultHttpClient - Connection can be kept alive indefinitely
+18:18:40.884 [main] DEBUG org.apache.http.wire -  << "86[\r][\n]"
+18:18:40.885 [main] DEBUG org.apache.http.wire -  << "[0x1f]"
+18:18:40.887 [main] DEBUG org.apache.http.wire -  << "[0x8b]"
+18:18:40.888 [main] DEBUG org.apache.http.wire -  << "[0x8]"
+18:18:40.888 [main] DEBUG org.apache.http.wire -  << "[0x0]"
+18:18:40.888 [main] DEBUG org.apache.http.wire -  << "[0x0][0x0][0x0][0x0][0x0][0x0]"
+18:18:40.890 [main] DEBUG org.apache.http.wire -  << "=[0x8c]M[0xe][0x82]0[0x10][0x85][0xf7]=E3[0xae][0xed]T[0x8d][0x1b]3-g[0xa9][0xb1][0x1][0x92]Rp[0xa6]P[0x8f]/[\n]"
+18:18:40.890 [main] DEBUG org.apache.http.wire -  << "[0xba]{?[0xdf]{[0xd4][0xbc][0x86][0xa4][0x97][0xc8][0xd2][0x8f][0xd9][0xc1][0xc9]Xh[0xbc]"[0x99][0x2]?[0x93]^[0xbb],[0xe][0xba]R[0xa6][0x1b]b[0xad][0xd5][0xd4][0x8b][0x19][0xb9][0xc5][0xb3][0xb5]W[0xdc][0xa0]#G[0x99]S[0x91][0x3]x[0xa5]5u1<>b[0x95]K[0xe0]>[0xdc]S[0xd4]9[0xc][0xd1]A[0xb][0xf8]%[0xf0][0x87][0xd0][0xbe][0xdc][0xd2][0xbf][0xa1][0xfd][0xd8][0xab]7$[0x1b]\[0xbe][0x9d][0x0][0x0][0x0]"

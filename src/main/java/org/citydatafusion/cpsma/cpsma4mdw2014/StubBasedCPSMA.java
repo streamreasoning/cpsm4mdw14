@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -193,34 +194,58 @@ public class StubBasedCPSMA {
 	public static void main(String[] args) throws ClientProtocolException,
 			IOException, InterruptedException, ParseException {
 
-		 for (int i = 0; i < 2; i++) {
+//		 for (int i = 0; i < 2; i++) {
+//		
+//		 Calendar cal = Calendar.getInstance();
+//		 cal.getTime();
+//		
+//		 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
+//		 putNewGraph(
+//		 "http://www.streamreasoning.com/demos/mdw14/fuseki/data/sl/"
+//		 + cal.getTimeInMillis(),
+//		 "src/main/resources/exampleOfSlOutput.ttl");
+//		 }
+//		
+//		 addMetadataToDefaultGraph(cal, SL);
+//				
+//		 Thread.currentThread().sleep(1000);
+//		
+//		 }
+//
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+//		String dateInString = "27-02-2014 13:00:00";
+//		Date date = sdf.parse(dateInString);
+//		
+//		List<String> l = getRecentGraphs(date,SL);
+//		
+//		for(String s : l) {
+//			Model m = getGraph(s);
+//			m.write(System.out);
+//		}
 		
-		 Calendar cal = Calendar.getInstance();
-		 cal.getTime();
+		SlBlackboardMediator sl = new SlBlackboardMediator();
 		
-		 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
-		 putNewGraph(
-		 "http://www.streamreasoning.com/demos/mdw14/fuseki/data/sl/"
-		 + cal.getTimeInMillis(),
-		 "src/main/resources/exampleOfSlOutput.ttl");
-		 }
+//		for (int i = 0; i < 2; i++) {
+//			
+//			 Calendar cal = Calendar.getInstance();
+//			 cal.getTime();
+//			
+//			 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
+//				 String content = new Scanner(new File("src/main/resources/exampleOfSlOutput.ttl")).useDelimiter("\\Z").next();
+//				 sl.putNewGraph(cal,content);
+//			 }
+//		}
 		
-		 addMetadataToDefaultGraph(cal, SL);
-				
-		 Thread.currentThread().sleep(1000);
-		
-		 }
-
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
 		String dateInString = "27-02-2014 13:00:00";
 		Date date = sdf.parse(dateInString);
 		
-		List<String> l = getRecentGraphs(date,SL);
+		List<String> l = sl.getRecentGraphs(date);
 		
-		for(String s : l) {
-			Model m = getGraph(s);
-			m.write(System.out);
-		}
+		System.out.println(l);
+		
+		
+		
 		
 	}
 
