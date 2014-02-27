@@ -66,29 +66,29 @@ public class StubBasedCPSMA {
 	/**
 	 * @param args
 	 * @throws FileNotFoundException 
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException  {
+	public static void main(String[] args) throws FileNotFoundException, ParseException  {
 
 
 		
-		SlBlackboardMediator sl = new SlBlackboardMediator();
+		BlackboardMediator sl = new BlackboardMediator(Agents.SL);
 		
+		Calendar cal = Calendar.getInstance();
+		Date begin = cal.getTime();
 		for (int i = 0; i < 2; i++) {
 			
-			 Calendar cal = Calendar.getInstance();
-			 cal.getTime();
-			
+			 
+			 cal = Calendar.getInstance();
 			 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
 				 String content = new Scanner(new File("src/main/resources/exampleOfSlOutput.ttl")).useDelimiter("\\Z").next();
-				 sl.putNewGraph(cal,content);
+				 sl.putNewGraph(cal.getTimeInMillis(),content);
 			 }
 		}
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-		String dateInString = "27-02-2014 13:00:00";
-		Date date = sdf.parse(dateInString);
+		List<String> l = sl.getRecentGraphs(begin);
 		
-		List<String> l = sl.getRecentGraphs(date);
+		System.out.println(l);
 		
 		
 		for(String s : l) {

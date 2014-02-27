@@ -33,11 +33,12 @@ import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
-public abstract class BlackboardMediator {
+public class BlackboardMediator {
 
 	private Logger logger = LoggerFactory.getLogger(BlackboardMediator.class);
 
 	protected String agent;
+	
 	protected String prefixes = "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . "
 			+ "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . "
 			+ "@prefix prov: <http://www.w3.org/ns/prov#> . "
@@ -56,19 +57,32 @@ public abstract class BlackboardMediator {
 	protected String dataServerURL = serverURL + "data";
 	protected String queryServerURL = serverURL + "query";
 	protected String baseIRI = "http://www.streamreasoning.com/demos/mdw14/fuseki/data/";
+	
+	BlackboardMediator(String agent){
+		this.agent = agent;
+		this.baseIRI += agent+"/";
+		this.prefixes += "@prefix "+agent+": <http://www.streamreasoning.com/demos/mdw14/fuseki/data/"+agent+"/> . ";
+	}
+	
+	BlackboardMediator(String agent, String serverURL, String baseIRI) {
+		this(agent);
+		this.baseIRI = baseIRI+agent+"/";
+		this.serverURL=serverURL;
+	}
 
-	public String createGraphMetadata(Calendar cal) {
+	public String createGraphMetadata(long timestamp) {
 		String content = prefixes;
-		content += agent + ":" + cal.getTimeInMillis()
+		content += agent + ":" + timestamp
 				+ " a prov:Entity ; prov:wasAttributedTo cpsma:" + agent + ";";
-		content += "prov:generatedAtTime \"" + sdf.format(cal.getTime())
+		Date d = new Date(timestamp);
+		content += "prov:generatedAtTime \"" + sdf.format(d)
 				+ "\"^^xsd:dateTime . ";
 
 		return content;
 
 	}
 
-	public void putNewGraph(Calendar cal, String model) {
+	public void putNewGraph(long timestamp, String model) {
 
 		{
 			HttpClient client = HttpClientBuilder.create().build();
@@ -76,7 +90,7 @@ public abstract class BlackboardMediator {
 			RequestBuilder rb = RequestBuilder.put();
 			rb.setUri(dataServerURL);
 			rb.addHeader("Content-Type", "text/turtle");
-			rb.addParameter("graph", baseIRI + cal.getTimeInMillis());
+			rb.addParameter("graph", baseIRI + timestamp);
 			try {
 				rb.setEntity(new StringEntity(model));
 			} catch (UnsupportedEncodingException e) {
@@ -101,7 +115,7 @@ public abstract class BlackboardMediator {
 			}
 		}
 		{
-			String content = createGraphMetadata(cal);
+			String content = createGraphMetadata(timestamp);
 
 			HttpClient client = HttpClientBuilder.create().build();
 
@@ -137,7 +151,7 @@ public abstract class BlackboardMediator {
 
 	}
 
-	protected List<String> getRecentGraphs(Date cal) {
+	protected List<String> getRecentGraphs(Date date) {
 
 		String query = "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
 				+ "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  "
@@ -145,8 +159,8 @@ public abstract class BlackboardMediator {
 				+ "prefix cpsma: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/> "
 				+ "SELECT " + "?g " + "WHERE { " + "?g a prov:Entity ; "
 				+ "   prov:wasAttributedTo cpsma:" + agent + " ; "
-				+ "   prov:generatedAtTime ?t . " + "FILTER (?t > \""
-				+ sdf.format(cal.getTime()) + "\"^^xsd:dateTime) " + "}";
+				+ "   prov:generatedAtTime ?t . " + "FILTER (?t >= \""
+				+ sdf.format(date.getTime()) + "\"^^xsd:dateTime) " + "}";
 
 		logger.debug(query);
 
