@@ -1,0 +1,34 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix cse: <http://www.citydatafusion.org/ontology/2014/1/cse#> .
+@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .
+@prefix venue: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue/> .
+@prefix district: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/district/> .
+@prefix event: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/event/> .
+@prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .
+@prefix tag: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/tag/> .
+@prefix ts: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts/> .
+@prefix ts3h: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/ts3h/> .
+@prefix cp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cp/> .
+@prefix mp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/mp/> .
+
+mp:42 	rdf:type sma:Tweet ;
+		sioc:has_creator user:Alice ;
+		sioc:topic tag:Opificio31, tag:phonepad,venue:Opificio31, event:AuthenticBeauty, district:Tortona, event:mdw2014 ;
+		dcterms:created "2001-10-26T21:32:52"^^xsd:dateTime ;
+		sma:sentiment "0.5"^^xsd:float ;
+		sma:contradiction_level "1.0"^^xsd:float ;
+		sioc:topic [ sma:about venue:Opificio31 ; sma:sentiment "1.0"^^xsd:float ] ;
+		sioc:topic [ sma:about event:AuthenticBeauty ; sma:sentiment "0.6"^^xsd:float ] ;
+		sioc:topic [ sma:about "phonepad" ; sma:sentiment "-0.7"^^xsd:float ] ;
+		geo:location [ geo:lat "45.45149"^^xsd:float; geo:long "9.162278"^^xsd:float ] ;
+		sma:created_during ts:1365461100000;
+		sma:created_during ts3h:1365469200000;
+		sma:created_in cp:4451 ;
+		sma:language "en"^^xsd:string .
