@@ -10,12 +10,15 @@ public class VmBlackboardMediator extends BlackboardMediator {
 
 	private Logger logger = LoggerFactory.getLogger(VmBlackboardMediator.class);
 	
-	public static String agent = "vm";
 	
-	VmBlackboardMediator(){}
+	VmBlackboardMediator(){	
+		this.agent = "vm";
+	}
 	
 	VmBlackboardMediator(String serverURL, String baseIRI) {
-		super(serverURL,baseIRI);
+		this.agent = "sl";
+		this.serverURL=serverURL;
+		baseIRI = baseIRI+agent+"/";
 	}
 	
 	

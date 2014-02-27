@@ -5,14 +5,18 @@ import org.slf4j.LoggerFactory;
 
 public class SlBlackboardMediator extends BlackboardMediator {
 	
-	public static String agent = "sl";
-
 	private Logger logger = LoggerFactory.getLogger(SlBlackboardMediator.class);
 	
-	SlBlackboardMediator(){}
+	SlBlackboardMediator(){
+		this.agent = "sl";
+		this.baseIRI = super.baseIRI+agent+"/";
+		this.prefixes = super.prefixes + "@prefix "+agent+": <http://www.streamreasoning.com/demos/mdw14/fuseki/data/"+agent+"/> . ";
+	}
 	
 	SlBlackboardMediator(String serverURL, String baseIRI) {
-		super(serverURL,baseIRI);
+		this();
+		this.baseIRI = baseIRI+agent+"/";
+		this.serverURL=serverURL;
 	}
 	
 }

@@ -9,13 +9,16 @@ import org.slf4j.LoggerFactory;
 public class VvrBlackboardMediator extends BlackboardMediator {
 	
 	private Logger logger = LoggerFactory.getLogger(VvrBlackboardMediator.class);
+
 	
-	public static String agent = "vvr";
-	
-	VvrBlackboardMediator(){}
+	VvrBlackboardMediator(){
+		this.agent = "vvr";
+	}
 	
 	VvrBlackboardMediator(String serverURL, String baseIRI) {
-		super(serverURL,baseIRI);
+		this.agent = "sl";
+		this.serverURL=serverURL;
+		baseIRI = baseIRI+agent+"/";
 	}
 
 
