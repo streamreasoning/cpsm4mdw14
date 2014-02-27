@@ -28,6 +28,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,7 @@ public class StubBasedCPSMA {
 
 	private static Logger logger = LoggerFactory.getLogger(StubBasedCPSMA.class);
 
-	
+
 	private static final String prefixes = "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . "
 			+ "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . "
 			+ "@prefix prov: <http://www.w3.org/ns/prov#> . "
@@ -141,13 +142,13 @@ public class StubBasedCPSMA {
 				+ "}";
 
 		logger.debug(query);
-		
+
 		List<String> l = new LinkedList<String>();
 
 		Query q = QueryFactory.create(query, Syntax.syntaxSPARQL_11);
 		QueryExecution qexec = QueryExecutionFactory.sparqlService(
-						"http://www.streamreasoning.com/demos/mdw14/fuseki/cp_sma_ds/query",
-						q);
+				"http://www.streamreasoning.com/demos/mdw14/fuseki/cp_sma_ds/query",
+				q);
 		ResultSet r = qexec.execSelect();
 		for (; r.hasNext();) {
 			QuerySolution soln = r.nextSolution();
@@ -158,7 +159,7 @@ public class StubBasedCPSMA {
 	}
 
 	public static Model getGraph(String graph) throws ClientProtocolException,
-			IOException {
+	IOException {
 		HttpClient client = HttpClientBuilder.create().build();
 
 		RequestBuilder rb = RequestBuilder.get();
@@ -168,15 +169,15 @@ public class StubBasedCPSMA {
 		HttpUriRequest m = rb.build();
 
 		HttpResponse response = client.execute(m);
-		
+
 		logger.debug(response.toString());
-		
+
 		HttpEntity entity = response.getEntity();
-		
+
 		String responseStr = EntityUtils.toString(entity);
 		Model model = ModelFactory.createDefaultModel();
 		return model.read(new StringReader(responseStr), null,"TURTLE");
-		
+
 	}
 
 	public static void SLwritesForVVR() {
@@ -191,37 +192,39 @@ public class StubBasedCPSMA {
 	 * @throws ParseException 
 	 */
 	public static void main(String[] args) throws ClientProtocolException,
-			IOException, InterruptedException, ParseException {
+	IOException, InterruptedException, ParseException {
 
-		 for (int i = 0; i < 2; i++) {
-		
-		 Calendar cal = Calendar.getInstance();
-		 cal.getTime();
-		
-		 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
-		 putNewGraph(
-		 "http://www.streamreasoning.com/demos/mdw14/fuseki/data/sl/"
-		 + cal.getTimeInMillis(),
-		 "src/main/resources/exampleOfSlOutput.ttl");
-		 }
-		
-		 addMetadataToDefaultGraph(cal, SL);
-				
-		 Thread.currentThread().sleep(1000);
-		
-		 }
+		//		PropertyConfigurator.configure("src/main/resources/log4j.properties");
+
+		//		for (int i = 0; i < 2; i++) {
+		//
+		//			Calendar cal = Calendar.getInstance();
+		//			cal.getTime();
+		//
+		//			if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
+		//				putNewGraph(
+		//						"http://www.streamreasoning.com/demos/mdw14/fuseki/data/sl/"
+		//								+ cal.getTimeInMillis(),
+		//						"src/main/resources/exampleOfSlOutput.ttl");
+		//			}
+		//
+		//			addMetadataToDefaultGraph(cal, SL);
+		//
+		//			Thread.currentThread().sleep(1000);
+		//
+		//		}
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-		String dateInString = "27-02-2014 13:00:00";
+		String dateInString = "27-02-2014 17:18:00";
 		Date date = sdf.parse(dateInString);
-		
+
 		List<String> l = getRecentGraphs(date,SL);
-		
+
 		for(String s : l) {
 			Model m = getGraph(s);
 			m.write(System.out);
 		}
-		
+
 	}
 
 }
