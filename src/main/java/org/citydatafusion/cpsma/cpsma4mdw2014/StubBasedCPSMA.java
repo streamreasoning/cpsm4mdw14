@@ -57,6 +57,7 @@ public class StubBasedCPSMA {
 		try {
 			model.read(in, null, lang);
 		} catch (Exception e) {
+			logger.error("RDF syntax error",e);
 			return false;
 		}
 		return true;
@@ -67,8 +68,9 @@ public class StubBasedCPSMA {
 	 * @param args
 	 * @throws FileNotFoundException 
 	 * @throws ParseException 
+	 * @throws BlackboardException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException, ParseException  {
+	public static void main(String[] args) throws FileNotFoundException, ParseException, BlackboardException  {
 
 
 		// creates an instance of the BlackboardMediator class for the agent SL

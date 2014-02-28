@@ -82,7 +82,7 @@ public class BlackboardMediator {
 
 	}
 
-	public void putNewGraph(Date date, String model) {
+	public void putNewGraph(Date date, String model) throws BlackboardException {
 
 		{
 			HttpClient client = HttpClientBuilder.create().build();
@@ -94,9 +94,8 @@ public class BlackboardMediator {
 			try {
 				rb.setEntity(new StringEntity(model));
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Unable to put new graph",e);
 			}
 			HttpUriRequest m = rb.build();
 
@@ -105,13 +104,11 @@ public class BlackboardMediator {
 				response = client.execute(m);
 				logger.debug(response.toString());
 			} catch (ClientProtocolException e) {
-				// TODO something smarter ?
-				e.printStackTrace();
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Unable to put new graph",e);
 			} catch (IOException e) {
-				// TODO something smarter ?
-				e.printStackTrace();
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Unable to put new graph", e);
 			}
 		}
 		{
@@ -126,10 +123,9 @@ public class BlackboardMediator {
 			try {
 				rb.setEntity(new StringEntity(content));
 			} catch (UnsupportedEncodingException e) {
-				// TODO something smarter ?
-				e.printStackTrace();
 				// TODO delete the graph just added
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Graph put, unable to add its metadata",e);
 			}
 			HttpUriRequest m = rb.build();
 
@@ -137,15 +133,13 @@ public class BlackboardMediator {
 				HttpResponse response = client.execute(m);
 				logger.debug(response.toString());
 			} catch (ClientProtocolException e) {
-				// TODO something smarter ?
-				e.printStackTrace();
 				// TODO delete the graph just added
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Graph put, unable to add its metadata",e);
 			} catch (IOException e) {
-				// TODO something smarter ?
-				e.printStackTrace();
 				// TODO delete the graph just added
-				return;
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException("Graph put, unable to add its metadata",e);
 			}
 		}
 
@@ -178,7 +172,7 @@ public class BlackboardMediator {
 		return l;
 	}
 
-	public String getGraph(String graphName) {
+	public String getGraph(String graphName) throws BlackboardException {
 		HttpClient client = HttpClientBuilder.create().build();
 
 		RequestBuilder rb = RequestBuilder.get();
@@ -194,13 +188,11 @@ public class BlackboardMediator {
 			HttpEntity entity = response.getEntity();
 			return EntityUtils.toString(entity);
 		} catch (ClientProtocolException e) {
-			// TODO something smarter ?
-			e.printStackTrace();
-			return null;
+			logger.error(e.getMessage(),e);
+			throw new BlackboardException("Unable to get recent graph",e);
 		} catch (IOException e) {
-			// TODO something smarter ?
-			e.printStackTrace();
-			return null;
+			logger.error(e.getMessage(),e);
+			throw new BlackboardException("Unable to get recent graph",e);
 		}
 
 	}
