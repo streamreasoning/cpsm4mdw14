@@ -53,7 +53,7 @@ public class BlackboardMediator {
 		};
 	};
 
-	protected String serverURL = "http://www.streamreasoning.com/demos/mdw14/fuseki/cp_sma_ds/";
+	protected String serverURL = "http://www.streamreasoning.com/demos/mdw14/fuseki/blackboard/";
 	protected String dataServerURL = serverURL + "data";
 	protected String queryServerURL = serverURL + "query";
 	protected String baseIRI = "http://www.streamreasoning.com/demos/mdw14/fuseki/data/";
@@ -70,7 +70,7 @@ public class BlackboardMediator {
 		this.serverURL=serverURL;
 	}
 
-	public String createGraphMetadata(long timestamp) {
+	private String createGraphMetadata(long timestamp) {
 		String content = prefixes;
 		content += agent + ":" + timestamp
 				+ " a prov:Entity ; prov:wasAttributedTo cpsma:" + agent + ";";
@@ -82,7 +82,7 @@ public class BlackboardMediator {
 
 	}
 
-	public void putNewGraph(long timestamp, String model) {
+	public void putNewGraph(Date date, String model) {
 
 		{
 			HttpClient client = HttpClientBuilder.create().build();
@@ -90,7 +90,7 @@ public class BlackboardMediator {
 			RequestBuilder rb = RequestBuilder.put();
 			rb.setUri(dataServerURL);
 			rb.addHeader("Content-Type", "text/turtle");
-			rb.addParameter("graph", baseIRI + timestamp);
+			rb.addParameter("graph", baseIRI + date.getTime());
 			try {
 				rb.setEntity(new StringEntity(model));
 			} catch (UnsupportedEncodingException e) {
@@ -115,7 +115,7 @@ public class BlackboardMediator {
 			}
 		}
 		{
-			String content = createGraphMetadata(timestamp);
+			String content = createGraphMetadata(date.getTime());
 
 			HttpClient client = HttpClientBuilder.create().build();
 
@@ -151,7 +151,7 @@ public class BlackboardMediator {
 
 	}
 
-	protected List<String> getRecentGraphs(Date date) {
+	protected List<String> getRecentGraphNames(Date date) {
 
 		String query = "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
 				+ "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  "
@@ -178,13 +178,13 @@ public class BlackboardMediator {
 		return l;
 	}
 
-	public String getGraph(String graph) {
+	public String getGraph(String graphName) {
 		HttpClient client = HttpClientBuilder.create().build();
 
 		RequestBuilder rb = RequestBuilder.get();
 		rb.setUri(dataServerURL);
 		rb.addHeader("Accept", "text/turtle; charset=utf-8");
-		rb.addParameter("graph", graph);
+		rb.addParameter("graph", graphName);
 		HttpUriRequest m = rb.build();
 
 		HttpResponse response;

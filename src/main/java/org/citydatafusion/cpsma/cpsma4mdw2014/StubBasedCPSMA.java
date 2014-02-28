@@ -71,8 +71,8 @@ public class StubBasedCPSMA {
 	public static void main(String[] args) throws FileNotFoundException, ParseException  {
 
 
-		
-		BlackboardMediator sl = new BlackboardMediator(Agents.SL);
+		// creates an instance of the BlackboardMediator class for the agent SL
+		BlackboardMediator slm = new BlackboardMediator(Agents.VM);
 		
 		Calendar cal = Calendar.getInstance();
 		Date begin = cal.getTime();
@@ -80,19 +80,19 @@ public class StubBasedCPSMA {
 			
 			 
 			 cal = Calendar.getInstance();
-			 if (validateSyntax("src/main/resources/exampleOfSlOutput.ttl", "TURTLE")) {
-				 String content = new Scanner(new File("src/main/resources/exampleOfSlOutput.ttl")).useDelimiter("\\Z").next();
-				 sl.putNewGraph(cal.getTimeInMillis(),content);
+			 if (validateSyntax("src/main/resources/exampleOfHistoricalVmOutput.ttl", "TURTLE")) {
+				 String content = new Scanner(new File("src/main/resources/exampleOfHistoricalVmOutput.ttl")).useDelimiter("\\Z").next();
+				 slm.putNewGraph(cal.getTime(),content);
 			 }
 		}
 		
-		List<String> l = sl.getRecentGraphs(begin);
+		List<String> l = slm.getRecentGraphNames(begin);
 		
 		System.out.println(l);
 		
 		
 		for(String s : l) {
-		String responseStr = sl.getGraph(s);
+		String responseStr = slm.getGraph(s);
 		Model m = ModelFactory.createDefaultModel();
 		m.read(new StringReader(responseStr), null,"TURTLE");
 		m.write(System.out);

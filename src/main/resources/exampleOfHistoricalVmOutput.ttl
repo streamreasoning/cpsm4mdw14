@@ -1,0 +1,17 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+
+@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .
+@prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .
+@prefix pro: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/profile/> .
+@prefix dbp: <http://dbpedia.org/resource/> .
+
+
+user:Alice 	rdf:type sioc:UserAccount ;
+			sma:has_profile pro:Alice42 .
+
+pro:Alice42	rdf:type sma:Historical_Profile ;
+			sma:shows_interest [ sma:about dbp:Interior_design ; sma:weight "0.9"^^xsd:float ] , 
+			[ sma:about dbp:Star_Wars ; sma:weight "0.8"^^xsd:float ] ,
+			[ sma:about dbp:Star_Trek ; sma:weight "0.7"^^xsd:float ] .

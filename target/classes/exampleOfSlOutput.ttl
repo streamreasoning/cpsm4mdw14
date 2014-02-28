@@ -18,9 +18,15 @@
 @prefix cp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cp/> .
 @prefix mp: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/mp/> .
 
+# what VVR really needs
+
 mp:42 	rdf:type sma:Tweet ;
 		sioc:has_creator user:Alice ;
-		sioc:topic tag:Opificio31, tag:phonepad,venue:Opificio31, event:AuthenticBeauty, district:Tortona, event:mdw2014 ;
+		sioc:topic venue:Opificio31 .
+
+# what SL can also provide to VVR
+
+mp:42 	sioc:topic event:AuthenticBeauty, district:Tortona, tag:Opificio31, tag:phonepad ;
 		dcterms:created "2001-10-26T21:32:52"^^xsd:dateTime ;
 		sma:sentiment "0.5"^^xsd:float ;
 		sma:contradiction_level "1.0"^^xsd:float ;
