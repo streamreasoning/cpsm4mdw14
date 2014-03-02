@@ -47,7 +47,8 @@ import com.hp.hpl.jena.util.FileManager;
 
 public class StubBasedCPSMA {
 
-	private static Logger logger = LoggerFactory.getLogger(StubBasedCPSMA.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(StubBasedCPSMA.class);
 
 	public static boolean validateSyntax(String filePath, String lang) {
 		Model model = ModelFactory.createDefaultModel();
@@ -57,52 +58,107 @@ public class StubBasedCPSMA {
 		try {
 			model.read(in, null, lang);
 		} catch (Exception e) {
-			logger.error("RDF syntax error",e);
+			logger.error("RDF syntax error", e);
 			return false;
 		}
 		return true;
 	}
 
-
 	/**
 	 * @param args
-	 * @throws FileNotFoundException 
-	 * @throws ParseException 
-	 * @throws BlackboardException 
+	 * @throws FileNotFoundException
+	 * @throws ParseException
+	 * @throws BlackboardException
 	 */
-	public static void main(String[] args) throws FileNotFoundException, ParseException, BlackboardException  {
+	public static void main(String[] args) throws FileNotFoundException,
+			ParseException, BlackboardException {
 
+		final int TEST1 = 1;
+		final int TEST2 = 2;
 
-		// creates an instance of the BlackboardMediator class for the agent SL
-		BlackboardMediator slm = new BlackboardMediator(Agents.VM);
+		int test = TEST2;
 		
-		Calendar cal = Calendar.getInstance();
-		Date begin = cal.getTime();
-		for (int i = 0; i < 2; i++) {
-			
-			 
-			 cal = Calendar.getInstance();
-			 if (validateSyntax("src/main/resources/exampleOfHistoricalVmOutput.ttl", "TURTLE")) {
-				 String content = new Scanner(new File("src/main/resources/exampleOfHistoricalVmOutput.ttl")).useDelimiter("\\Z").next();
-				 slm.putNewGraph(cal.getTime(),content);
-			 }
+		BlackboardMediator slm = new BlackboardMediator(Agents.SL);
+
+		switch (test) {
+		case TEST1:
+
+			// creates an instance of the BlackboardMediator class for the agent
+			// SL
+
+
+			int j = 1;
+			while (j<100) {
+
+				Calendar cal = Calendar.getInstance();
+				Date begin = cal.getTime();
+				for (int i = 0; i < 100; i++) {
+
+					cal = Calendar.getInstance();
+					if (validateSyntax(
+							"src/main/resources/exampleOfHistoricalVmOutput.ttl",
+							"TURTLE")) {
+						String content = new Scanner(
+								new File(
+										"src/main/resources/exampleOfHistoricalVmOutput.ttl"))
+								.useDelimiter("\\Z").next();
+						slm.putNewGraph(cal.getTime(), content);
+					}
+				}
+
+				Calendar cal1 = Calendar.getInstance();
+				Date middle = cal1.getTime();
+				System.out.print(j + "\t"
+						+ (middle.getTime() - begin.getTime()) + "\t");
+
+				List<String> l = slm.getRecentGraphNames(begin);
+
+				// System.out.println(l);
+
+				for (String s : l) {
+					String responseStr = slm.getGraph(s);
+					Model m = ModelFactory.createDefaultModel();
+					m.read(new StringReader(responseStr), null, "TURTLE");
+					// m.write(System.out);
+				}
+				Calendar cal2 = Calendar.getInstance();
+				Date end = cal2.getTime();
+				System.out.println(end.getTime() - middle.getTime());
+
+				j++;
+
+			}
+			break;
+
+		case TEST2:
+
+			j = 1;
+			while (j<10000) {
+
+				Calendar cal = Calendar.getInstance();
+				Date begin = cal.getTime();
+				
+
+					cal = Calendar.getInstance();
+					if (validateSyntax(
+							"src/main/resources/exampleOfHistoricalVmOutput.ttl",
+							"TURTLE")) {
+						String content = new Scanner(
+								new File(
+										"src/main/resources/exampleOfHistoricalVmOutput.ttl"))
+								.useDelimiter("\\Z").next();
+						slm.putNewGraph(cal.getTime(), content);
+					}
+
+				Calendar cal1 = Calendar.getInstance();
+				Date middle = cal1.getTime();
+				System.out.println(j + "\t"
+						+ (middle.getTime() - begin.getTime()));
+
+				j++;
+			}			
+			break;
+
 		}
-		
-		List<String> l = slm.getRecentGraphNames(begin);
-		
-		System.out.println(l);
-		
-		
-		for(String s : l) {
-		String responseStr = slm.getGraph(s);
-		Model m = ModelFactory.createDefaultModel();
-		m.read(new StringReader(responseStr), null,"TURTLE");
-		m.write(System.out);
 	}
-		
-		
-		
-		
-	}
-
 }
