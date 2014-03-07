@@ -72,7 +72,7 @@ public class StubBasedCPSMA {
 	 */
 	public static void main(String[] args) throws FileNotFoundException,
 			ParseException, BlackboardException {
-
+		
 		final int TEST1 = 1;
 		final int TEST2 = 2;
 
