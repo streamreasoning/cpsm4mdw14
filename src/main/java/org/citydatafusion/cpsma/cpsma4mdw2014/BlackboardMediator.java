@@ -78,9 +78,9 @@ public class BlackboardMediator {
 		this.serverURL=serverURL;
 	}
 
-	private String createGraphMetadata(long timestamp) {
+	private String createGraphMetadata(long timestamp, String graphName) {
 		String content = prefixes;
-		content += agent + ":" + timestamp
+		content += agent + ":" + graphName
 				+ " a prov:Entity ; prov:wasAttributedTo cpsma:" + agent + ";";
 		Date d = new Date(timestamp);
 		content += "prov:generatedAtTime \"" + sdf.format(d)
@@ -89,7 +89,7 @@ public class BlackboardMediator {
 		return content;
 
 	}
-	
+
 	private Model createGraphMetadataDatasetAccessor(long timestamp, String graphName) throws DatatypeConfigurationException {
 		Model tempMetadataGraph = ModelFactory.createDefaultModel();
 
@@ -135,7 +135,7 @@ public class BlackboardMediator {
 			}
 		}
 		{
-			String content = createGraphMetadata(date.getTime());
+			String content = createGraphMetadata(date.getTime(), String.valueOf(date.getTime()));
 
 			HttpClient client = HttpClientBuilder.create().build();
 
@@ -174,12 +174,14 @@ public class BlackboardMediator {
 
 			try {
 
+				String graphName = userId + "_" + date.getTime();
+
 				HttpClient client = HttpClientBuilder.create().build();
 
 				RequestBuilder rb = RequestBuilder.put();
 				rb.setUri(dataServerURL);
 				rb.addHeader("Content-Type", "text/turtle");
-				rb.addParameter("graph", baseIRI + userId + "_" + date.getTime());
+				rb.addParameter("graph", baseIRI + graphName);
 				rb.setEntity(new StringEntity(model));
 
 				HttpUriRequest m = rb.build();
@@ -189,7 +191,7 @@ public class BlackboardMediator {
 				logger.debug(response.toString());
 
 
-				String content = createGraphMetadata(date.getTime());
+				String content = createGraphMetadata(date.getTime(), graphName);
 
 				client = HttpClientBuilder.create().build();
 
@@ -216,15 +218,21 @@ public class BlackboardMediator {
 		}
 
 	}
-	
+
 	public void putNewGraphDatasetAccessor(Date date, Model model) throws BlackboardException {
-		try {
-			da = DatasetAccessorFactory.createHTTP(dataServerURL);
-			da.add(createGraphMetadataDatasetAccessor(date.getTime(), baseIRI + date.getTime()));
-			da.putModel(baseIRI + date.getTime(), model);
-		} catch (DatatypeConfigurationException e) {
-			logger.error(e.getMessage(),e);
-			throw new BlackboardException(e.getMessage(),e);
+
+		if(agent.equals(Agents.SL)){
+			try {
+				da = DatasetAccessorFactory.createHTTP(dataServerURL);
+				da.add(createGraphMetadataDatasetAccessor(date.getTime(), baseIRI + date.getTime()));
+				da.putModel(baseIRI + date.getTime(), model);
+			} catch (DatatypeConfigurationException e) {
+				logger.error(e.getMessage(),e);
+				throw new BlackboardException(e.getMessage(),e);
+			}
+		} else {
+			logger.error("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
+			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
 		}
 
 	}	
@@ -280,8 +288,13 @@ public class BlackboardMediator {
 		}
 	}
 
-	public Model getGraphModelDatasetAccessor(String graphName) {
-		return da.getModel(graphName);
+	public Model getGraphModelDatasetAccessor(String graphName) throws BlackboardException {
+		if(agent.equals(Agents.SL)){
+			return da.getModel(graphName);
+		} else {
+			logger.error("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
+			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
+		}
 	}
 
 }
