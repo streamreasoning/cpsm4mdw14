@@ -179,7 +179,7 @@ public class BlackboardMediator {
 				RequestBuilder rb = RequestBuilder.put();
 				rb.setUri(dataServerURL);
 				rb.addHeader("Content-Type", "text/turtle");
-				rb.addParameter("graph", baseIRI + userId + date.getTime());
+				rb.addParameter("graph", baseIRI + userId + "_" + date.getTime());
 				rb.setEntity(new StringEntity(model));
 
 				HttpUriRequest m = rb.build();
