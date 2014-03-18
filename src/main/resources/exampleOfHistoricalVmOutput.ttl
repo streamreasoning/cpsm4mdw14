@@ -2,7 +2,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 
-@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .
+@prefix sma: <http://www.citydatafusion.org/ontologies/2014/1/sma#> .
 @prefix user: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> .
 @prefix pro: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/profile/> .
 @prefix dbp: <http://dbpedia.org/resource/> .

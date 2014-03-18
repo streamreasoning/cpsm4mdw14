@@ -6,8 +6,8 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
-@prefix cse: <http://www.citydatafusion.org/ontology/2014/1/cse#> .
-@prefix sma: <http://www.citydatafusion.org/ontology/2014/1/sma#> .
+@prefix cse: <http://www.citydatafusion.org/ontologies/2014/1/cse#> .
+@prefix sma: <http://www.citydatafusion.org/ontologies/2014/1/sma#> .
 @prefix venue: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue/> .
 @prefix district: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/district/> .
 @prefix event: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/event/> .
