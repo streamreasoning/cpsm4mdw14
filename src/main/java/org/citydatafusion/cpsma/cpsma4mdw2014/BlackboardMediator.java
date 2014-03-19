@@ -42,7 +42,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 
 public class BlackboardMediator {
 
-	private Logger logger = LoggerFactory.getLogger(BlackboardMediator.class);
+	protected Logger logger = LoggerFactory.getLogger(BlackboardMediator.class);
 
 	private String agent;
 	private DatasetAccessor da;
@@ -247,6 +247,36 @@ public class BlackboardMediator {
 				+ "   prov:wasAttributedTo cpsma:" + agent + " ; "
 				+ "   prov:generatedAtTime ?t . " + "FILTER (?t >= \""
 				+ sdf.format(date.getTime()) + "\"^^xsd:dateTime) " + "}";
+
+		logger.debug(query);
+
+		List<String> l = new LinkedList<String>();
+
+		Query q = QueryFactory.create(query, Syntax.syntaxSPARQL_11);
+		QueryExecution qexec = QueryExecutionFactory.sparqlService(
+				queryServerURL, q);
+		ResultSet r = qexec.execSelect();
+		for (; r.hasNext();) {
+			QuerySolution soln = r.nextSolution();
+			l.add(soln.get("g").toString());
+		}
+
+		return l;
+	}
+	
+	public List<String> getRecentGraphNames(Date startDate, Date endDate) {
+
+		String query = "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
+				+ "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  "
+				+ "prefix prov: <http://www.w3.org/ns/prov#> "
+				+ "prefix cpsma: <http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/> "
+				+ "SELECT " + "?g "
+				+ "WHERE { " 
+				+ "?g a prov:Entity ; "
+				+ "prov:wasAttributedTo cpsma:" + agent + " ; "
+				+ "prov:generatedAtTime ?t . " 
+				+ "FILTER (?t >= \"" + sdf.format(startDate.getTime()) + "\"^^xsd:dateTime && ?t <= \"" + sdf.format(endDate.getTime()) + "\"^^xsd:dateTime ) " 
+				+ "}";
 
 		logger.debug(query);
 
