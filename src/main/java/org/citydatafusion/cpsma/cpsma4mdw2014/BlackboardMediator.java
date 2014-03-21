@@ -1,12 +1,15 @@
 package org.citydatafusion.cpsma.cpsma4mdw2014;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -263,7 +266,7 @@ public class BlackboardMediator {
 
 		return l;
 	}
-	
+
 	public List<String> getRecentGraphNames(Date startDate, Date endDate) {
 
 		String query = "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
@@ -325,6 +328,41 @@ public class BlackboardMediator {
 			logger.error("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
 			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
 		}
+	}
+
+	public Map<Long, String> retrieveAllRecommendations(String model){
+		
+		HashMap<Long, String> reccomendation = new HashMap<Long, String>();
+		
+		StringReader sr = new StringReader(model);
+		Model m = ModelFactory.createDefaultModel();
+		m.read(sr,null,"TURTLE");
+		
+		String queryText = "PREFIX user:<http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> "
+				+ "PREFIX venue:<http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue> "
+				+ "PREFIX sma:<http://www.citydatafusion.org/ontology/2014/1/sma#> "
+				+ "SELECT ?user ?obj "
+				+ "WHERE { "
+				+ "?user sma:shows_interest ?interest . "
+				+ "?interest sma:about ?obj . "
+				+ "}";
+		
+		Query q = QueryFactory.create(queryText, Syntax.syntaxSPARQL_11);
+		QueryExecution qexec = QueryExecutionFactory.create(q,m);
+		ResultSet rs = qexec.execSelect();
+		
+		String user;
+		
+		while (rs.hasNext()) {
+			QuerySolution querySolution = (QuerySolution) rs.next();
+			user = querySolution.getResource("user").toString();
+			user = user.substring(user.lastIndexOf("/") + 1, user.length());
+			reccomendation.put(Long.parseLong(user), querySolution.getResource("obj").toString());
+			
+		}
+		
+		return reccomendation;
+		
 	}
 
 }
