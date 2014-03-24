@@ -24,6 +24,7 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.citydatafusion.cpsma.cpsma4mdw2014.utilities.Recommendation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -330,9 +331,9 @@ public class BlackboardMediator {
 		}
 	}
 
-	public Map<Long, String> retrieveAllRecommendations(String model){
+	public Map<Long, Recommendation> retrieveAllRecommendations(String model){
 		
-		HashMap<Long, String> reccomendation = new HashMap<Long, String>();
+		HashMap<Long, Recommendation> reccomendations = new HashMap<Long, Recommendation>();
 		
 		StringReader sr = new StringReader(model);
 		Model m = ModelFactory.createDefaultModel();
@@ -341,10 +342,11 @@ public class BlackboardMediator {
 		String queryText = "PREFIX user:<http://www.streamreasoning.com/demos/mdw14/fuseki/data/user/> "
 				+ "PREFIX venue:<http://www.streamreasoning.com/demos/mdw14/fuseki/data/venue> "
 				+ "PREFIX sma:<http://www.citydatafusion.org/ontology/2014/1/sma#> "
-				+ "SELECT ?user ?obj "
+				+ "SELECT ?user ?obj ?prob "
 				+ "WHERE { "
 				+ "?user sma:shows_interest ?interest . "
-				+ "?interest sma:about ?obj . "
+				+ "?interest sma:about ?obj ; "
+				+ "sma:has_probability ?prob . "
 				+ "}";
 		
 		Query q = QueryFactory.create(queryText, Syntax.syntaxSPARQL_11);
@@ -352,16 +354,19 @@ public class BlackboardMediator {
 		ResultSet rs = qexec.execSelect();
 		
 		String user;
-		
+		Recommendation recommendation;
 		while (rs.hasNext()) {
 			QuerySolution querySolution = (QuerySolution) rs.next();
+			recommendation = new Recommendation();
 			user = querySolution.getResource("user").toString();
 			user = user.substring(user.lastIndexOf("/") + 1, user.length());
-			reccomendation.put(Long.parseLong(user), querySolution.getResource("obj").toString());
+			recommendation.setObjectName(querySolution.getResource("obj").toString());
+			recommendation.setRecommandationProbability(Float.parseFloat(querySolution.getLiteral("prob").getLexicalForm()));
+			reccomendations.put(Long.parseLong(user), recommendation);
 			
 		}
 		
-		return reccomendation;
+		return reccomendations;
 		
 	}
 
