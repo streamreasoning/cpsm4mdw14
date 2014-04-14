@@ -8,3 +8,4 @@
 *.ear
 /target
 /src/main/java/it
+/tips_evaluation
