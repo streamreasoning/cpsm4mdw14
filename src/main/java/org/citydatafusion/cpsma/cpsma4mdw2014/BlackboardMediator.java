@@ -74,12 +74,17 @@ public class BlackboardMediator {
 		this.agent = agent;
 		this.baseIRI += agent+"/";
 		this.prefixes += "@prefix "+agent+": <http://www.streamreasoning.com/demos/mdw14/fuseki/data/"+agent+"/> . ";
+		this.da = DatasetAccessorFactory.createHTTP(dataServerURL);
 	}
 
 	public BlackboardMediator(String agent, String serverURL, String baseIRI) {
 		this(agent);
 		this.baseIRI = baseIRI+agent+"/";
 		this.serverURL=serverURL;
+		dataServerURL = serverURL + "data";
+		queryServerURL = serverURL + "query";
+		this.da = DatasetAccessorFactory.createHTTP(dataServerURL);
+
 	}
 
 	private String createGraphMetadata(long timestamp, String graphName) {
@@ -97,7 +102,7 @@ public class BlackboardMediator {
 	private Model createGraphMetadataDatasetAccessor(long timestamp, String graphName) throws DatatypeConfigurationException {
 		Model tempMetadataGraph = ModelFactory.createDefaultModel();
 
-		tempMetadataGraph.add(new ResourceImpl(graphName), RDF.type, new ResourceImpl("http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/Entity"));
+		tempMetadataGraph.add(new ResourceImpl(graphName), RDF.type, new ResourceImpl("http://www.w3.org/ns/prov#Entity"));
 		tempMetadataGraph.add(new ResourceImpl(graphName), new PropertyImpl("http://www.w3.org/ns/prov#wasAttributedTo"), new ResourceImpl("http://www.streamreasoning.com/demos/mdw14/fuseki/data/cpsma/" + agent));
 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -227,7 +232,6 @@ public class BlackboardMediator {
 
 		if(agent.equals(Agents.SL)){
 			try {
-				da = DatasetAccessorFactory.createHTTP(dataServerURL);
 				da.add(createGraphMetadataDatasetAccessor(date.getTime(), baseIRI + date.getTime()));
 				da.putModel(baseIRI + date.getTime(), model);
 			} catch (DatatypeConfigurationException e) {
@@ -287,8 +291,7 @@ public class BlackboardMediator {
 		List<String> l = new LinkedList<String>();
 
 		Query q = QueryFactory.create(query, Syntax.syntaxSPARQL_11);
-		QueryExecution qexec = QueryExecutionFactory.sparqlService(
-				queryServerURL, q);
+		QueryExecution qexec = QueryExecutionFactory.sparqlService(queryServerURL, q);
 		ResultSet r = qexec.execSelect();
 		for (; r.hasNext();) {
 			QuerySolution soln = r.nextSolution();
