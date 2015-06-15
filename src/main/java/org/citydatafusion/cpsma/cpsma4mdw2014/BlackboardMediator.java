@@ -230,7 +230,7 @@ public class BlackboardMediator {
 
 	public void putNewGraphDatasetAccessor(Date date, Model model) throws BlackboardException {
 
-		if(agent.equals(Agents.SL)){
+//		if(agent.equals(Agents.SL)){
 			try {
 				da.add(createGraphMetadataDatasetAccessor(date.getTime(), baseIRI + date.getTime()));
 				da.putModel(baseIRI + date.getTime(), model);
@@ -238,10 +238,10 @@ public class BlackboardMediator {
 				logger.error(e.getMessage(),e);
 				throw new BlackboardException(e.getMessage(),e);
 			}
-		} else {
-			logger.error("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
-			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
-		}
+//		} else {
+//			logger.error("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
+//			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use putNewGraph(Date date, String model) or putNewGraph(Date date, String userID, String model). ");
+//		}
 
 	}	
 
@@ -326,12 +326,12 @@ public class BlackboardMediator {
 	}
 
 	public Model getGraphModelDatasetAccessor(String graphName) throws BlackboardException {
-		if(agent.equals(Agents.SL)){
+//		if(agent.equals(Agents.SL)){
 			return da.getModel(graphName);
-		} else {
-			logger.error("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
-			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
-		}
+//		} else {
+//			logger.error("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
+//			throw new BlackboardException("This method could be executed only by the Social Listener. Please try to use getGraph(String graphName). ");
+//		}
 	}
 
 	public Map<Long, Recommendation> retrieveAllRecommendations(String model){
